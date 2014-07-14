@@ -1,0 +1,13 @@
+{
+  "modules": { 
+    "mutemik": {
+      "description": "sendkey qui desactive le/les micros des kinect",
+      "version": "0.1",
+	  "nombre_kinect": "1",
+	  "index_kinect1": "1",
+	  "index_kinect2": "2",
+	  "re_up_defaut_timer": "3600",
+      "path_plugin_sarah": ""
+    }
+  }
+}

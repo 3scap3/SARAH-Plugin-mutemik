@@ -1,0 +1,31 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleDemo" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleDemo" scope="public">
+    <example>Sarah coupe le son</example>
+    <tag>out.action=new Object(); </tag>
+
+    <item>Sarah</item>
+
+    <one-of>
+     
+    <item>arrête l'écoute<tag>out.action.macro="desactiver"</tag></item>
+    <item>sourdine<tag>out.action.macro="desactiver"</tag></item>
+	  <item>miute kinect<tag>out.action.macro="desactiver"</tag></item>
+    <item>coupe le son de ton micros<tag>out.action.macro="desactiver"</tag></item>
+	  <item>coupe ton micros<tag>out.action.macro="desactiver"</tag></item>
+	  <item>coupe le micros du kinect<tag>out.action.macro="desactiver"</tag></item>
+	  <item>mode respect intimité<tag>out.action.macro="desactiver"</tag></item>
+	  
+	  <item>ecoute moi<tag>out.action.macro="activer"</tag></item>
+    <item>remet l'écoute<tag>out.action.macro="activer"</tag></item>
+    <item>active le son du micros<tag>out.action.macro="activer"</tag></item>
+	  <item>active le micros du kinect<tag>out.action.macro="activer"</tag></item>
+    <item>remet le micros du kinect<tag>out.action.macro="activer"</tag></item>
+	<item>Arret mode respect intimité<tag>out.action.macro="activer"</tag></item>
+       
+	  <item>affiche le manager audio<tag>out.action.macro="manager"</tag></item>
+	  <item>ouvre le manager audio<tag>out.action.macro="manager"</tag></item>
+    </one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/mutemik";</tag>
+  </rule> 
+</grammar>
