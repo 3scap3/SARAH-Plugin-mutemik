@@ -8,7 +8,6 @@ console.log('INFOS contenu data.macro :' + data.macro);
 console.log('INFOS Nombre de kinect definis :' + config.modules.mutemik.nombre_kinect);
 console.log('INFOS index du kinect1 :' + config.modules.mutemik.index_kinect1);
 console.log('INFOS index du kinect2 :' + config.modules.mutemik.index_kinect2);
-console.log('INFOS Valeur de re_up_defaut_timer :' + config.modules.mutemik.re_up_defaut_timer);
 console.log('INFOS Chemin du repertoire plugin de sarah :' + config.modules.mutemik.path_plugin_sarah);
 
 var nmbr_kinect_def = config.modules.mutemik.nombre_kinect
