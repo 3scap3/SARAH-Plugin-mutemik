@@ -14,7 +14,6 @@ console.log('INFOS Chemin du repertoire plugin de sarah :' + config.modules.mute
 var nmbr_kinect_def = config.modules.mutemik.nombre_kinect
 var ndx_kinect1 = config.modules.mutemik.index_kinect1
 var ndx_kinect2 = config.modules.mutemik.index_kinect2
-var timer_reup = config.modules.mutemik.re_up_defaut_timer
 var path_plugin_sarah = config.modules.mutemik.path_plugin_sarah
 
 var date = new Date();
@@ -41,9 +40,6 @@ var date = new Date();
 				//if (typeof answer == 'undefined' ||  answer == false) {
 				if (reponse == 'undefined' ||  reponse == false || !reponse ) 
 				{	
-					//answer = timer_reup;
-					//end;
-					//end(); // MUST be called when job done
 					//callback({'tts': "Je reste a l'ecoute."});
 					console.log('INFOS REPONSE: ' + reponse);
 					//SARAH.speak("Je reste a l'ecoute.", end);
@@ -111,6 +107,11 @@ var date = new Date();
 					if (HEURES < 10)
 					{
 						HEURES = '0' + HEURES;
+					}	
+					
+					if (MINUTES < 10)
+					{
+						MINUTES = '0' + MINUTES;
 					}	
 					
 					if (HEURES_PLUS_TEMP < 10)
