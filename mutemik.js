@@ -21,17 +21,18 @@ var date = new Date();
 	// si macro passer en param = activer/desactiver 	
 	if (data.macro == 'desactiver') {
 
-		SARAH.askme("combien de tant ?", {    
+		SARAH.askme("combien de tant ?", {  
 			"une minute" 		: '1',
+			"unne minute" 		: '1',
 			"cinq minutes" 		: '5',
-			"dit minutes" 		: '10',
+			"dix minutes" 		: '10',
 			"di minutes" 		: '10',
 			"quinze minutes" 		: '15',
 			"vin minutes" 	: '20',
 			"trente minutes" 	: '30',
 			"quarante minutes" 	: '40',
 			"cinquante minutes" 	: '50',
-			"soissante minutes" 		: '60',
+			"soixante minutes" 		: '60',
 			"une heure" 		: '60',},
 			10000, 
 			function(answer, end)
