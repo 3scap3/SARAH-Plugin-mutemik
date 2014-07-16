@@ -1,0 +1,8 @@
+control du micro :
+nircmd :
+
+
+
+C:\Users\mike\Desktop\PARTAGE\nircmd-x64>nircmd setsysvolume 0 "Microphone Array" 1
+
+C:\Users\mike\Desktop\PARTAGE\nircmd-x64>nircmd setsysvolume 65536 "Microphone Array" 1
