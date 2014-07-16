@@ -17,9 +17,9 @@ var ndx_kinect2 = config.modules.mutemik.index_kinect2
 var path_plugin_sarah = config.modules.mutemik.path_plugin_sarah
 
 var date = new Date();
-	
-	// si macro passer en param = activer/desactiver 	
-	if (data.macro == 'desactiver') {
+
+	// si macro passer en param = activer/desactiver (mode vocal)	
+	if (data.macro == 'desactiver' && data.manuel == 'false' ) {
 
 		SARAH.askme("combien de tant ?", {  
 			"une minute" 		: '1',
@@ -161,8 +161,36 @@ var date = new Date();
 						console.log('=========================================================================================================================================');
 			}
 	}
+	
+	//// si macro passer en param = activer/desactiver (mode manuel)	
+	// 	192.168.0.7:8383/sarah/mutemik?macro=activer&manuel=true
+	if (data.macro == 'desactiver' && data.manuel == 'true' ) {
 		
-	if (data.macro == 'activer') {
+					//Vocaliser pour ete sur que l ordre est compris
+					SARAH.speak('Désactivation manuel Je coupe mes micros .', function(){
+
+						console.log('INFOS : Je coupe mes micros.');
+							
+						//execution du script vbs de desactivation avec nircmd:
+						var exec = require('child_process').exec;
+						//var param = nmbr_kinect_def + ' ' + ndx_kinect1 + ' ' + ndx_kinect2 ;
+						
+						//C:\Users\mike\Desktop\SARAH\WSRRelease316PreProd\plugins\mutemik\nircmd setsysvolume 0 "Microphone Array" 1
+						var process = path_plugin_sarah + 'mutemik\\nircmd setsysvolume 0 "Microphone Array" 1';
+						
+						console.log('INFOS var process : ' + process);
+
+					  
+						var child = exec(process,
+						function (error, stdout, stderr) {
+						if (error !== null) console.log('exec error: ' + error);
+						});
+						
+					});
+					
+				}		
+	// Activation dans tous les cas (manuel et vocal) si data.macro = activer 
+ 	if (data.macro == 'activer') {
 		
 		console.log('INFOS : Je reactive mes micros');
 		
