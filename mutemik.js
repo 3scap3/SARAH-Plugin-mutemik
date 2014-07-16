@@ -9,15 +9,23 @@ console.log('INFOS Nombre de kinect definis :' + config.modules.mutemik.nombre_k
 console.log('INFOS index du kinect1 :' + config.modules.mutemik.index_kinect1);
 console.log('INFOS index du kinect2 :' + config.modules.mutemik.index_kinect2);
 console.log('INFOS Chemin du repertoire plugin de sarah :' + config.modules.mutemik.path_plugin_sarah);
+console.log('INFOS Chemin du repertoire plugin de sarah :' + config.modules.mutemik.path_plugin_sarah);
 
 var nmbr_kinect_def = config.modules.mutemik.nombre_kinect
 var ndx_kinect1 = config.modules.mutemik.index_kinect1
 var ndx_kinect2 = config.modules.mutemik.index_kinect2
 var path_plugin_sarah = config.modules.mutemik.path_plugin_sarah
 
+//conversion %gain en valeur de 1 a 65536 : % gain micros * 65536 / 100
+var gain_max = config.modules.mutemik.gain_max
+//parametre par defaut : gain max positionner a 70% (etaloner le niveau du gain avec l 'aassistant configuration de windwows )
+if (gain_max == 'undefined' || gain_max == 'undefined' ) {
+	gain_max = '45875'
+	}
+	
 var date = new Date();
 
-	// si macro passer en param = activer/desactiver (mode vocal)	
+	// si macro passer en param = activer/desactiver (mode vocal : reactivation auto en fonction de askme)	
 	if (data.macro == 'desactiver' && data.manuel == 'false' ) {
 
 		SARAH.askme("combien de tant ?", {  
@@ -101,6 +109,7 @@ var date = new Date();
 					var MINUTES_DELAY = result[1];
 					
 					var HEURES_PLUS_TEMP = parseInt(HEURES) + parseInt(HEURES_DELAY);
+					
 					var MINUTES_PLUS_TEMP = parseInt(MINUTES) + parseInt(MINUTES_DELAY);
 					
 					//Pour mettre le format horraire local correct
@@ -204,7 +213,7 @@ var date = new Date();
 			//console.log('INFOS parametre du vbs : ' + param);
 			
 			//var process = path_plugin_sarah + 'mutemik\\mutemikActiver.vbs ' + param ;
-		    var process = path_plugin_sarah + 'mutemik\\nircmd setsysvolume 65536 "Microphone Array" 1';
+		    var process = path_plugin_sarah + 'mutemik\\nircmd setsysvolume ' + gain_max + '  "Microphone Array" 1';
 			console.log('INFOS var process : ' + process);
 				
 			var child = exec(process,
